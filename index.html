@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UI UX IA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" role="application" aria-label="Theme and Accent demo">
+    <!-- Controls -->
+    <aside class="controls" aria-labelledby="controlsTitle">
+      <h2 id="controlsTitle">Appearance</h2>
+
+      <div class="row" style="flex-direction:column;align-items:flex-start">
+        <label>Color scheme</label>
+        <div class="segmented" role="tablist" aria-label="Theme selection">
+          <button id="theme-auto" class="seg-btn" aria-pressed="false" data-theme="auto">Auto</button>
+          <button id="theme-light" class="seg-btn" aria-pressed="false" data-theme="light">Light</button>
+          <button id="theme-dark" class="seg-btn" aria-pressed="false" data-theme="dark">Dark</button>
+        </div>
+        <div class="muted-text" style="margin-top:8px">If <strong>Auto</strong>, the site follows your OS preference and updates if it changes.</div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="row" style="flex-direction:column;align-items:flex-start">
+        <label for="accentPicker">Accent color</label>
+        <div class="color-row">
+          <div class="color-swatch" id="swatch" title="Accent preview"></div>
+          <input id="accentPicker" type="color" value="#0066ff" aria-label="Choose accent color" />
+          <div style="flex:1">
+            <div class="muted-text" id="accentHex">#0066ff</div>
+            <div class="muted-text" id="contrastText">Text: white</div>
+          </div>
+        </div>
+        <div class="muted-text" style="margin-top:10px">Accent applies to buttons, tokens, and interactive UI. Changes animate smoothly.</div>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <main class="content" aria-live="polite">
+      <header class="header">
+        <div>
+          <h1 class="title">Theme & Accent demo</h1>
+          <div class="subtitle">Dark mode toggle + animated accent color. Persisted to <code class="kbd">localStorage</code>.</div>
+        </div>
+        <div>
+          <button class="btn" id="sampleAction">Primary action</button>
+        </div>
+      </header>
+
+      <section class="card" aria-labelledby="card1">
+        <h3 id="card1">Interactive tokens</h3>
+        <p class="muted-text">Tokens demo the accent color across the UI. They pulse briefly when the accent changes.</p>
+        <div class="tokens" id="tokensList">
+          <span class="token">Design</span>
+          <span class="token">Frontend</span>
+          <span class="token">Accessibility</span>
+          <span class="token">Animation</span>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="card2">
+        <h3 id="card2">Preview components</h3>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn">Save</button>
+          <button class="btn" id="openModal">Open</button>
+          <div class="mini-card">
+            <div style="font-weight:700">Card title</div>
+            <div class="muted-text">Secondary text demonstrates muted color token.</div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        Tip: Try switching to <strong>Auto</strong>, then change your OS (or simulate in dev tools) to see it follow system preference.
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
